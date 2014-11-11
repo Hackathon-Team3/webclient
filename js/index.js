@@ -1,10 +1,11 @@
 function submit_action() {
-  console.log("submit_action");
-  $.getJSON( "ajax/test.json", function( data ) {
-    alert("called");
+  submit_url = "index.html";
+  redirect_url = "http://maps.google.com/mars";
+
+  $.post(submit_url, function(data) {
+    window.location.href = redirect_url;
   })
   .fail(function() {
-    console.log( "error" );
+    console.log("Failed to call " + submit_url);
   })
-  console.log("exited");
 }
