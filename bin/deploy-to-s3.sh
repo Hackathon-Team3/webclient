@@ -8,4 +8,4 @@ function missing_req() {
 
 which aws > /dev/null || missing_req
 
-aws s3 sync . s3://marsbook --exclude ".*" --acl=public-read
+aws s3 sync . s3://marsbook --exclude ".*" --acl=public-read --delete
