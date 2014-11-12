@@ -3,6 +3,7 @@ class: center, middle, inverse
 # Mars Captcha 
 ### Bringing crowdsourcing and AI together
 Ben,
+Jarrod,
 Michael,
 Nick,
 Rajiv,
@@ -39,7 +40,15 @@ Two phase Captcha
 
 
 ---
+background-image:url(img/database.png)
+## Integration with JPL API
+
+
+---
 ## OpenCV
+
+Canny edge detection
+http://en.wikipedia.org/wiki/Canny_edge_detector
 
 ---
 background-image: url(img/example1.jpg)
@@ -69,6 +78,9 @@ background-image: url(img/example1_final.png)
 
 ---
 background-image: url(img/arch.svg)
+
+---
+# Demo
 
 ---
 # Questions?
