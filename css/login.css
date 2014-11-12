@@ -73,3 +73,18 @@
     display: block;
     margin-top: 10px;
 }
+
+#myWrapper {
+    position: relative;
+}
+
+#myImage {
+    z-index: -1;
+}
+
+#myCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}

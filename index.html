@@ -1,13 +1,17 @@
+<!DOCTYPE html>
 <html>
 
-<!-- jQuery -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<meta charset=utf-8 />
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+<script type="text/javascript" src="js/canvas.js">
+
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -26,12 +30,16 @@
                 <form class="form-signin" action="javascript: submit_action()">
                 <input type="text" class="form-control" placeholder="Email" required autofocus>
                 <input type="password" class="form-control" placeholder="Password" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
                     Sign in</button>
                 <label class="checkbox pull-left">
                     <input type="checkbox" value="remember-me">
                     Remember me
                 </label>
+                <span id="myWrapper">
+                    <image id="myImage" src="test.jpg"/>
+                    <canvas id="myCanvas" style="border:1px solid grey" width="600" height="400"></canvas>
+                </div>
                 <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
                 </form>
             </div>
@@ -39,4 +47,5 @@
         </div>
     </div>
 </div>
+
 </html>
