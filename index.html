@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-
-
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <meta charset=utf-8 />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -27,19 +26,17 @@
             <div class="account-wall">
                 <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
                     alt="">
-                <form class="form-signin" action="javascript: submit_action(1, 1)">
+                <form class="form-signin" action="javascript: submit_action(1, 1)">  <!-- TODO: add lat and long to submit_action -->
                 <input type="text" class="form-control" placeholder="Email" required autofocus>
                 <input type="password" class="form-control" placeholder="Password" required>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Sign in</button>
-                <label class="checkbox pull-left">
-                    <input type="checkbox" value="remember-me">
-                    Remember me
-                </label>
-                <span id="myWrapper">
-                    <image id="myImage" src="test.jpg"/>
-                    <canvas id="myCanvas" style="border:1px solid grey" width="600" height="400"></canvas>
+
+                <div id="myWrapper">
+                    <image id="myImage" src="test.jpg" width="300" height="200"/>
+                    <canvas id="myCanvas" width="300" height="200"></canvas>
+                    <p/>
                 </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
                 </form>
             </div>
