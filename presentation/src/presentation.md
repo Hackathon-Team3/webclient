@@ -25,6 +25,7 @@ Simone
 * Humans are more precise
 * A scientist is the best, but scarcest resource
 
+
 ---
 ## Mars Captcha
 #### Backend
@@ -35,6 +36,20 @@ Two phase Captcha
 
 * Regular Captcha (generated image)
 * Show interesting detail to user for pattern recognition  
+
+
+---
+## OpenCV
+
+---
+background-image: url(img/example1.jpg)
+
+---
+background-image: url(img/example1_canny.png)
+
+---
+background-image: url(img/example1_final.png)
+
 
 ---
 ## Mars Captcha
