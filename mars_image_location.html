@@ -1,0 +1,60 @@
+<html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+// snipped from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+</script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  var ge;
+  google.load("earth", "1", {"other_params":"sensor=true"});
+
+  function init() {
+    google.earth.createInstance('map3d', initCB, failureCB, { database: 'http://khmdb.google.com/?db=mars' });
+  }
+
+  function initCB(instance) {
+    ge = instance;
+    ge.getWindow().setVisibility(true);
+    ge.getNavigationControl().setVisibility(ge.VISIBILITY_SHOW);
+
+    setTimeout(function() {
+        latitude = getParameterByName("latitude");
+        longitude = getParameterByName("longitude");
+
+        if (latitude == "") {
+          console.log("No latitude given, staying in overview mode.");
+        } else if (longitude == "") {
+          console.log("No longitude given, staying in overview mode.");
+        } else {
+          lookAt = ge.createLookAt('');
+          lookAt.set(41.717, -9.424, 0, ge.ALTITUDE_RELATIVE_TO_GROUND, 0, 0, 10150);
+          ge.getView().setAbstractView(lookAt);
+        }
+      }, 1000);
+  }
+
+  function failureCB(errorCode) {
+    console.log("error loading google maps api");
+  }
+
+  function goToLatLong(latitute, longitude) {
+  }
+
+  google.setOnLoadCallback(init);
+</script>
+
+<body>
+<div>
+  <div id="map3d" style="height: 100%; width: 100%;"></div>
+</div>
+</body>
+</html>
