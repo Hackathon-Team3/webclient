@@ -27,8 +27,8 @@
     ge.getNavigationControl().setVisibility(ge.VISIBILITY_SHOW);
 
     setTimeout(function() {
-        latitude = parseInt(getParameterByName("latitude"));
-        longitude = parseInt(getParameterByName("longitude"));
+        latitude = parseFloat(getParameterByName("latitude"));
+        longitude = parseFloat(getParameterByName("longitude"));
 
         // set view to lat and long, if any given
         if (latitude == "") {
@@ -43,7 +43,13 @@
 
         // Add a placemark
         var placemark = ge.createPlacemark('');
-        placemark.setName("Mars rover was here");
+        var icon = ge.createIcon('');
+        icon.setHref('http://marsbook.s3-website-us-west-1.amazonaws.com/img/rover.png');
+        var style = ge.createStyle('');
+        style.getIconStyle().setIcon(icon);
+        style.getIconStyle().setScale(1.5);
+        placemark.setStyleSelector(style);
+
 
         var point = ge.createPoint('');
         point.setLatitude(latitude);
@@ -51,6 +57,17 @@
         placemark.setGeometry(point);
 
         ge.getFeatures().appendChild(placemark);
+
+        google.earth.addEventListener(placemark, 'click', function(event) {
+          event.preventDefault();
+
+          var content = "<h3>Curiosity was here!</h3><p>Coordinates: " + latitude + ", " + longitude + "</p>";
+          var balloon = ge.createHtmlStringBalloon('');
+          balloon.setFeature(placemark);
+          balloon.setContentString(content);
+          balloon.setMinWidth(200);
+          ge.setBalloon(balloon);
+        });
       }, 1000);
   }
 
@@ -62,6 +79,7 @@
 </script>
 
 <body>
+<h2><center>This is where the image you just traced was taken</center></h2>
 <div>
   <div id="map3d" style="height: 100%; width: 100%;"></div>
 </div>
