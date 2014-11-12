@@ -1,6 +1,6 @@
-function submit_action(latlong) {
+function submit_action(latitude, longitude) {
   submit_url = "index.html";
-  redirect_url = "mars_image_location.html";
+  redirect_url = "mars_image_location.html?latitude=" + latitude + "&longitude=" + longitude;
 
   $.post(submit_url, function(data) {
     window.location.href = redirect_url;
