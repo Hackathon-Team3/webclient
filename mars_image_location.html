@@ -43,7 +43,14 @@
 
         // Add a placemark
         var placemark = ge.createPlacemark('');
-        placemark.setName("Mars rover was here");
+        placemark.setName("    Mars rover was here");  // spaces avoid name overlapping the rover placemark
+
+        var icon = ge.createIcon('');
+        icon.setHref('http://marsbook.s3-website-us-west-1.amazonaws.com/img/rover.png');
+        var style = ge.createStyle('');
+        style.getIconStyle().setIcon(icon);
+        style.getIconStyle().setScale(1.5);
+        placemark.setStyleSelector(style);
 
         var point = ge.createPoint('');
         point.setLatitude(latitude);
