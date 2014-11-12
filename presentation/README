@@ -1,0 +1,12 @@
+This presentation is made using remark.js (http://remarkjs.com)
+
+Editing and building
+===================
+1. Change the markdown and the template+css found in src/
+2. build the presentation: ./build.sh
+3. open the generated file presentation.html in the browser
+
+Tip: edit and refresh workflow
+==============================
+
+for((;;));do sleep 1; ./build.sh; done
