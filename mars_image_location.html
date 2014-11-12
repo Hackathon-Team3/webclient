@@ -27,26 +27,35 @@
     ge.getNavigationControl().setVisibility(ge.VISIBILITY_SHOW);
 
     setTimeout(function() {
-        latitude = getParameterByName("latitude");
-        longitude = getParameterByName("longitude");
+        latitude = parseInt(getParameterByName("latitude"));
+        longitude = parseInt(getParameterByName("longitude"));
 
+        // set view to lat and long, if any given
         if (latitude == "") {
           console.log("No latitude given, staying in overview mode.");
         } else if (longitude == "") {
           console.log("No longitude given, staying in overview mode.");
         } else {
           lookAt = ge.createLookAt('');
-          lookAt.set(41.717, -9.424, 0, ge.ALTITUDE_RELATIVE_TO_GROUND, 0, 0, 10150);
+          lookAt.set(latitude, longitude, 0, ge.ALTITUDE_RELATIVE_TO_GROUND, 0, 0, 10150);
           ge.getView().setAbstractView(lookAt);
         }
+
+        // Add a placemark
+        var placemark = ge.createPlacemark('');
+        placemark.setName("Mars rover was here");
+
+        var point = ge.createPoint('');
+        point.setLatitude(latitude);
+        point.setLongitude(longitude);
+        placemark.setGeometry(point);
+
+        ge.getFeatures().appendChild(placemark);
       }, 1000);
   }
 
   function failureCB(errorCode) {
     console.log("error loading google maps api");
-  }
-
-  function goToLatLong(latitute, longitude) {
   }
 
   google.setOnLoadCallback(init);
