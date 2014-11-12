@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<meta charset=utf-8 />
+
+<link rel="stylesheet" href="js/canvas.js">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+</head>
+<script type="text/javascript">
+	window.onload = function() {
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var width  = window.innerWidth;
+    var height = window.innerHeight;
+    canvas.height = height;
+    canvas.width = width;
+    canvas.addEventListener('mousedown', function(e) {
+      this.down = true;  
+      this.X = e.pageX ;
+      this.Y = e.pageY ;
+      this.color = rgb();
+    }, 0);
+    canvas.addEventListener('mouseup', function() {
+      this.down = false;      
+    }, 0);
+    canvas.addEventListener('mousemove', function(e) {
+      this.style.cursor = 'pointer';
+      if(this.down) {
+          ctx.beginPath();
+          ctx.moveTo(this.X, this.Y);
+          ctx.lineCap = 'round';
+           ctx.lineWidth = 3;
+          ctx.lineTo(e.pageX , e.pageY );
+          ctx.strokeStyle = this.color;
+          ctx.stroke();
+         
+         this.X = e.pageX ;
+         this.Y = e.pageY ;
+      }
+    }, 0);
+    
+    function rgb() {
+      color = 'rgb(250,200,200)';
+      return color;
+    }    
+  };
+</script>
+<canvas id="canvas"></canvas>
+</html>

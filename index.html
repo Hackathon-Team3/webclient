@@ -29,18 +29,30 @@
                 <form class="form-signin" action="javascript: submit_action(1, 1)">  <!-- TODO: add lat and long to submit_action -->
                 <input type="text" class="form-control" placeholder="Email" required autofocus>
                 <input type="password" class="form-control" placeholder="Password" required>
-
-                <div id="myWrapper">
+                <hr/>   
+                <h5>1) Are you human?</h5>
+               <image id="myCaptcha" src="captcha.png" width="300" height="200"/>
+               <p/>
+               <input type="text" class="form-control" placeholder="Enter the text above" required autofocus>
+               <hr/>
+              <h5>2) Can you identify a visual pattern?</h5>
+             <a href="#" class="pull-right need-help">Another image</a><span class="clearfix"></span>
+              
+               <div id="myWrapper">
                     <image id="myImage" src="test.jpg" width="300" height="200"/>
                     <canvas id="myCanvas" width="300" height="200"></canvas>
+
                     <p/>
-                </div>
+                           <h5> Draw a line along the rock layers</h5>
+
+                    </p>
+                </div>                    
+                </p>
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
                 </form>
             </div>
-            <a href="#" class="text-center new-account">Create an account </a>
+            <a href="#" class="text-center new-account">Find more about Mars at NASA JPL website</a>
         </div>
     </div>
 </div>
